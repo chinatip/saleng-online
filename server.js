@@ -26,7 +26,8 @@ app.get('/', function(req, res) {
 app.get('/index', function(req, res) {
   var query = 'SELECT item.i_id, item.i_name, item.i_price, images.img_link from item ';
   query += 'INNER JOIN images ON item.i_id = images.i_id ';
-  query += 'LIMIT 20';
+  query += 'GROUP BY item.i_id LIMIT 20';
+  console.log(query);
   connection.query(query, function (error, results, fields) {
     // item_table =
     // [ RowDataPacket {
@@ -34,9 +35,25 @@ app.get('/index', function(req, res) {
     //  i_name: 'Test_item',
     //  i_price: 9,
     //  img_link: './test.png' } ]
+    console.log(results);
     res.render('pages/index', {
       pagename: 'index',
       item_table: results
+    });
+  });
+});
+
+app.get('/search', function(req, res) {
+  var query = '';
+  query += 'SELECT cat_desc FROM catagories';
+  connection.query(query, function (error, results, fields) {
+    // catagories =
+    // [ RowDataPacket { cat_desc: 'Catagory 1' },
+    // RowDataPacket { cat_desc: 'Catagory 2' } ]
+    res.render('pages/search', {
+      pagename: 'search',
+      search_text: '',
+      catagories: results
     });
   });
 });

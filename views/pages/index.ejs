@@ -10,17 +10,18 @@
 
       <div class="row" style="text-align:center;">
 
-        <% for (var item=0; item < item_table.length; item++) { %>
-        <div class="col-xs-6" style="border-width:1px 1px 1px 1px; border-style:solid; padding:10px">
-            <div class="row">
-                <img src="<%= item_table[item].img_link %>" height="auto" width="20%">
-            </div>
-            <div class="row">
-              <span>฿<%= item_table[item].i_price %>.00</span>
-            </div>
-        </div>
-        <% }%>
-    </div>
+        <% item_table.forEach(function(item) { %>
+          <div class="col-xs-6" style="border-width:1px 1px 1px 1px; border-style:solid; padding:10px">
+              <div class="row">
+                  <img src="<%= item.img_link %>" height="auto" width="20%">
+                  <br><%= item.i_name %>
+              </div>
+              <div class="row">
+                <span>฿<%= item.i_price %>.00</span>
+              </div>
+          </div>
+        <% }); %>
 
+    </div>
   </body>
 </html>
