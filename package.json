@@ -1,0 +1,11 @@
+{
+  "name": "node-ejs",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "ejs": "^1.0.0",
+    "express": "^4.6.1",
+    "mysql": "^2.13.0"
+  }
+}
