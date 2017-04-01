@@ -1,25 +1,45 @@
 <div class="container">
   <div class="row" style="text-align:center;">
 
-    <div class="col-xs-12" style="padding:10px">
-      <div class="row">
-        <img src="<%= item.img_link %>" height="auto" width="20%" class="img-rounded">
-        <br><%= item.i_name %>
-      </div>
-      <div class="row">
-        <span>฿<%= item.i_price %>.00/ <span>กิโลกรัม</span></span>
-      </div>
-      <div class="row">
-        <span>฿<%= item.i_des %>.00</span>
-      </div>
+
+    <div class="col-xs-12">
+      <img src="<%= item.img_link %>" height="auto" width="20%" class="img-rounded">
+      <br><%= item.i_name %>
     </div>
-    <div class="row">
-      <span>จำนวนที่ต้องการขาย</span>
+    <div class="col-xs-12">
+      <span>฿<%= item.i_price %>.00/ <span>กิโลกรัม</span></span>
     </div>
-    <div class="row">
-      <input type="text" style="width:10%" maxlength="5"><span>กิโลกรัม</span>
+    <div class="col-xs-12">
+      <span><%= item.i_desc %></span>
+    </div>
+
+
+    <div class="col-xs-12">
       <br/>
-      <button type="submit" class="btn btn-default">ขาย</button>
+      <hr/>
     </div>
+
+
+    <form action="/sell" method="post">
+      <input type="hidden" name="i_id" value="<%=item.id%>"/>
+      <input type="hidden" name="i_name" value="<%=item.i_name%>"/>
+      <input type="hidden" name="i_unit" value="<%=item.i_unit%>"/>
+
+      <div class="col-xs-12">
+        <span>จำนวนที่ต้องการขาย</span>
+      </div>
+      <div class="col-xs-12">
+        <input type="text" name="amount" style="width:10%" maxlength="5"><span>กิโลกรัม</span>
+
+
+      </div>
+
+
+      <div class="col-xs-12">
+        <button type="submit" class="btn btn-default">ขาย</button>
+      </div>
+
+    </form>
+
   </div>
 </div>
