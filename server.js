@@ -53,8 +53,28 @@ app.get('/search', function(req, res) {
   });
 });
 
+
+app.get('/chat', function(req, res) {
+    res.render('pages/chat', {
+      pagename: 'chat',
+      pageheader: 'Chat'
+    });
+    return;
+    // Just for testing
+  var query = 'SELECT cat_name, cat_id FROM catagories';
+  connection.query(query, function (error, results, fields) {
+    res.render('pages/search', {
+      pagename: 'search',
+      pageheader: 'Search',
+      catagories: results
+    });
+  });
+});
+
+
 app.get('/catagories/:cat_id', function(req, res) {
   var cat_id = req.params["cat_id"];
+
   var query = 'SELECT item.i_id, item.i_name, item.i_price, item.i_unit, images.img_link, catagories.cat_name from item ';
   query += 'INNER JOIN images ON item.i_id = images.i_id ';
   query += 'INNER JOIN item_cat ON item.i_id = item_cat.i_id ';
