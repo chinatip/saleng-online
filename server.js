@@ -24,7 +24,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/index', function(req, res) {
-  var query = 'SELECT item.i_id, item.i_name, item.i_price, images.img_link from item ';
+  var query = 'SELECT item.i_id, item.i_name, item.i_price, images.img_link FROM item ';
   query += 'INNER JOIN images ON item.i_id = images.i_id ';
   query += 'LIMIT 20';
   connection.query(query, function (error, results, fields) {
@@ -41,16 +41,17 @@ app.get('/index', function(req, res) {
   });
 });
 
-// app.get('/search', function(req, res) {
-//   var query = '';
-//   query += 'SELECT catagories.';
-//   connection.query(query, function (error, results, fields) {
-//     res.render('pages/search', {
-//       pagename: 'search'
-
-//     });
-//   });
-// });
+app.get('/search', function(req, res) {
+  var query = '';
+  query += 'SELECT cat_desc FROM catagories';
+  connection.query(query, function (error, results, fields) {
+    res.render('pages/search', {
+      pagename: 'search',
+      search_text: '',
+      catagories: results
+    });
+  });
+});
 
 // app.get('/item/:i_id', function(req, res) {
 //   var i_id = req.params["i_id"];
