@@ -53,8 +53,8 @@ app.get('/search', function(req, res) {
   });
 });
 
-app.post('/catagories/:cat_id', function(req, res) {
-  var cat_id = req.body.cat_id;
+app.get('/catagories/:cat_id', function(req, res) {
+  var cat_id = req.params["cat_id"];
   var query = 'SELECT item.i_id, item.i_name, item.i_price, item.i_unit, images.img_link, catagories.cat_name from item ';
   query += 'INNER JOIN images ON item.i_id = images.i_id ';
   query += 'INNER JOIN item_cat ON item.i_id = item_cat.i_id ';
