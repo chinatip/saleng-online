@@ -1,0 +1,23 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!--logo-->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="" style="padding-top: 8px;">
+                <img src="/logo.png" width="60" height="60" class="d-inline-block align-top" alt="">
+            </a>
+            <a class="navbar-brand" href="" style="font-family: Pacifico; font-size: 2em">Saleng Online</a>
+        </div>
+        <div class="nav navbar-nav navbar-right">
+            <form class="navbar-form navbar-left" role="search" mothod="get" action="{% url 'item:item-search' %}">
+                <input type="text" class="form-control" name="keyword" value="" placeholder="Search">
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+        </div>
+    </div>
+    </div>
+</nav>

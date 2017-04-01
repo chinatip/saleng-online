@@ -1,0 +1,9 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.navbar-brand {
+    display: flex;
+    flex-direction: row;
+}
