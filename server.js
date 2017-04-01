@@ -109,18 +109,16 @@ app.post('/sell', function(req, res) {
   var i_id = req.body.i_id;
   var i_name = req.body.i_name;
   var i_unit = req.body.i_unit;
+  var i_price = req.body.i_price;
   var amount = req.body.amount;
   var contact = req.body.contact;
+  var text = 'ฉันต้องการขาย "' + i_name + '" เป็นจำนวน "' + amount + ' ' + i_unit + '" ในราคา "' + i_price + ' บาท/' + i_unit + '" กรุณาติดต่อกลับหากคุณสนใจ'
   var query = ' INSERT INTO trans (i_id, amount, contact) ';
   query += 'VALUES (' + i_id + ', ' + amount + ', ' + contact + ');';
   connection.query(query, function (error, results, fields) {
     res.render('pages/chat', {
       pagename: 'search',
-      i_id: i_id,
-      i_name: i_name,
-      i_unit: i_unit,
-      amount: amount,
-      contact: contact
+      text: text
     });
   });
 });
