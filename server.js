@@ -27,7 +27,6 @@ app.get('/index', function(req, res) {
   var query = 'SELECT item.i_id, item.i_name, item.i_price, item.i_unit, images.img_link from item ';
   query += 'INNER JOIN images ON item.i_id = images.i_id ';
   query += 'GROUP BY item.i_id LIMIT 20';
-  console.log(query);
   connection.query(query, function (error, results, fields) {
     // item_table =
     // [ RowDataPacket {
@@ -44,11 +43,8 @@ app.get('/index', function(req, res) {
 });
 
 app.get('/search', function(req, res) {
-  var query = 'SELECT cat_name FROM catagories';
+  var query = 'SELECT cat_name, cat_id FROM catagories';
   connection.query(query, function (error, results, fields) {
-    // catagories =
-    // [ RowDataPacket { cat_name: 'Catagory 1' },
-    // RowDataPacket { cat_name: 'Catagory 2' } ]
     res.render('pages/search', {
       pagename: 'search',
       pageheader: 'Search',
@@ -57,18 +53,18 @@ app.get('/search', function(req, res) {
   });
 });
 
-app.post('/search', function(req, res) {
-  var cat_name = req.body.cat_name;
+app.post('/catagories/:cat_id', function(req, res) {
+  var cat_id = req.body.cat_id;
   var query = 'SELECT item.i_id, item.i_name, item.i_price, item.i_unit, images.img_link, catagories.cat_name from item ';
   query += 'INNER JOIN images ON item.i_id = images.i_id ';
   query += 'INNER JOIN item_cat ON item.i_id = item_cat.i_id ';
   query += 'INNER JOIN catagories ON item_cat.cat_id = catagories.cat_id ';
-  query += 'WHERE catagories.cat_name = "' + cat_name + '" ';
+  query += 'WHERE catagories.cat_id = "' + cat_id + '" ';
   query += 'GROUP BY item.i_id LIMIT 20';
   connection.query(query, function (error, results, fields) {
     res.render('pages/index', {
-      pagename: 'Catagory: ' + cat_name,
-      pageheader: 'Catagory: ' + cat_name,
+      pagename: 'Catagory: ' + cat_id,
+      pageheader: 'Catagory: ' + cat_id,
       item_table: results
     });
   });
@@ -76,8 +72,10 @@ app.post('/search', function(req, res) {
 
 app.get('/item/:i_id', function(req, res) {
   var i_id = req.params["i_id"];
-  var query = '';
-  query += 'SELECT ';
+  var query = 'SELECT item.i_id, item.i_name, item.i_price, item.i_unit, images.img_link from item ';
+  query += 'INNER JOIN images ON item.i_id = images.i_id ';
+  query += 'GROUP BY item.i_id';
+  query += '';
   connection.query(query, function (error, results, fields) {
     res.render('pages/search', {
       pagename: 'search'
