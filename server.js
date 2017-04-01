@@ -53,7 +53,6 @@ app.get('/search', function(req, res) {
     res.render('pages/search', {
       pagename: 'search',
       pageheader: 'Search',
-      cat_id: '',
       catagories: results
     });
   });
@@ -90,9 +89,10 @@ app.get('/catagory/:cat_id', function(req, res) {
 //       pagename: 'search'
 
 //     });
-// app.listen(port);
-// console.log('Server running at http://127.0.0.1:' + port);
+// 
 //   });
 // });
 
 var port = 8081
+app.listen(port);
+console.log('Server running at http://127.0.0.1:' + port);
