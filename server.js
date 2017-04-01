@@ -72,15 +72,35 @@ app.get('/catagories/:cat_id', function(req, res) {
 
 app.get('/item/:i_id', function(req, res) {
   var i_id = req.params["i_id"];
-  var query = 'SELECT item.i_id, item.i_name, item.i_price, item.i_unit, images.img_link from item ';
+  var query = 'SELECT item.i_id, item.i_name, item.i_price, item.i_desc, item.i_unit, images.img_link from item ';
   query += 'INNER JOIN images ON item.i_id = images.i_id ';
   query += 'WHERE item.i_id = "' + i_id + '" ';
   query += 'GROUP BY item.i_id';
   connection.query(query, function (error, results, fields) {
     var item = results[0];
     res.render('pages/item', {
-      pagename: 'search',
+      pagename: 'Item',
       item: item
+    });
+  });
+});
+
+app.post('/sell', function(req, res) {
+  var i_id = req.body.i_id;
+  var i_name = req.body.i_name;
+  var i_unit = req.body.i_unit;
+  var amount = req.body.amount;
+  var contact = req.body.contact;
+  var query = ' INSERT INTO trans (i_id, amount, contact) ';
+  query += 'VALUES (' + i_id + ', ' + amount + ', ' + contact + ');';
+  connection.query(query, function (error, results, fields) {
+    res.render('pages/chat', {
+      pagename: 'search',
+      i_id: i_id,
+      i_name: i_name,
+      i_unit: i_unit,
+      amount: amount,
+      contact: contact
     });
   });
 });
