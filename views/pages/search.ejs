@@ -9,16 +9,11 @@
         <ul class="list-group" id="search-group">
             <% for (var item=0; item < catagories.length ; item++) { %>
                 <li class="list-group-item" >
-                    <a href="" onclick="OnClickCategory(<%= JSON.stringify(catagories[item].cat_desc) %>)">
-                        <%= catagories[item].cat_desc %>
+                    <a href="#" onclick="OnClickCategory(<%= JSON.stringify(catagories[item].cat_name) %>)">
+                        <%= catagories[item].cat_name %>
                     </a>
-
-            <% for (var item=0; item < catagories.length; item++) { %>
-                <li class="list-group-item">
-                    <a href="/search"><%= catagories[item].cat_name %></a>
-
                 </li>
-            <% }%>
+            <% } %>
         </ul>
 
     </div>
@@ -26,7 +21,6 @@
         function OnClickCategory(ev) {
             console.log(ev)
         }
-        
     </script>
   </body>
 </html>
