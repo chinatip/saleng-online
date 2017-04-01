@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/search-bar %>
+    <div class="container">
+        <ul class="list-group">
+            <% for (var item=0; item < catagories.length; item++) { %>
+                <li class="list-group-item"><%= catagories[item].cat_desc %></li>
+            <% }%>
+        </ul>
+
+    </div>
+  </body>
+</html>
