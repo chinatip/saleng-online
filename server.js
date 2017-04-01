@@ -83,7 +83,6 @@ app.get('/item/:i_id', function(req, res) {
       pagename: 'search'
 
     });
-
   });
 });
 
