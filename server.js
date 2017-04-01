@@ -18,6 +18,7 @@ var connection = mysql.createConnection({
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/node_modules/bootstrap'))
 app.use(express.static(__dirname + '/views/images'))
+app.use(express.static(__dirname + '/views/css'))
 
 app.get('/', function(req, res) {
   res.redirect('/index');
