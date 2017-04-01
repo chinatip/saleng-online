@@ -1,1 +1,25 @@
-<div>Hello</div>
+<div class="container">
+  <div class="row" style="text-align:center;">
+
+    <div class="col-xs-12" style="padding:10px">
+      <div class="row">
+        <img src="<%= item.img_link %>" height="auto" width="20%" class="img-rounded">
+        <br><%= item.i_name %>
+      </div>
+      <div class="row">
+        <span>฿<%= item.i_price %>.00/ <span>กิโลกรัม</span></span>
+      </div>
+      <div class="row">
+        <span>฿<%= item.i_des %>.00</span>
+      </div>
+    </div>
+    <div class="row">
+      <span>จำนวนที่ต้องการขาย</span>
+    </div>
+    <div class="row">
+      <input type="text" style="width:10%" maxlength="5"><span>กิโลกรัม</span>
+      <br/>
+      <button type="submit" class="btn btn-default">ขาย</button>
+    </div>
+  </div>
+</div>

@@ -53,6 +53,7 @@ app.get('/search', function(req, res) {
   });
 });
 
+
 app.get('/chat', function(req, res) {
     res.render('pages/chat', {
       pagename: 'chat',
@@ -70,8 +71,10 @@ app.get('/chat', function(req, res) {
   });
 });
 
-app.post('/catagories/:cat_id', function(req, res) {
-  var cat_id = req.body.cat_id;
+
+app.get('/catagories/:cat_id', function(req, res) {
+  var cat_id = req.params["cat_id"];
+
   var query = 'SELECT item.i_id, item.i_name, item.i_price, item.i_unit, images.img_link, catagories.cat_name from item ';
   query += 'INNER JOIN images ON item.i_id = images.i_id ';
   query += 'INNER JOIN item_cat ON item.i_id = item_cat.i_id ';
@@ -91,12 +94,13 @@ app.get('/item/:i_id', function(req, res) {
   var i_id = req.params["i_id"];
   var query = 'SELECT item.i_id, item.i_name, item.i_price, item.i_unit, images.img_link from item ';
   query += 'INNER JOIN images ON item.i_id = images.i_id ';
+  query += 'WHERE item.i_id = "' + i_id + '" ';
   query += 'GROUP BY item.i_id';
-  query += '';
   connection.query(query, function (error, results, fields) {
-    res.render('pages/search', {
-      pagename: 'search'
-
+    var item = results[0];
+    res.render('pages/item', {
+      pagename: 'search',
+      item: item
     });
   });
 });
