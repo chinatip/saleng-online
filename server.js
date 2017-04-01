@@ -74,12 +74,13 @@ app.get('/item/:i_id', function(req, res) {
   var i_id = req.params["i_id"];
   var query = 'SELECT item.i_id, item.i_name, item.i_price, item.i_unit, images.img_link from item ';
   query += 'INNER JOIN images ON item.i_id = images.i_id ';
+  query += 'WHERE item.i_id = "' + i_id + '" ';
   query += 'GROUP BY item.i_id';
-  query += '';
   connection.query(query, function (error, results, fields) {
-    res.render('pages/search', {
-      pagename: 'search'
-
+    var item = results[0];
+    res.render('pages/item', {
+      pagename: 'search',
+      item: item
     });
   });
 });
