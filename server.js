@@ -24,11 +24,11 @@ app.get('/', function(req, res) {
 });
 
 app.get('/index', function(req, res) {
-  var query = 'SELECT item.i_id, item.i_name, item.i_price, images.img_link FROM item ';
+  var query = 'SELECT item.i_id, item.i_name, item.i_price, images.img_link from item ';
   query += 'INNER JOIN images ON item.i_id = images.i_id ';
   query += 'LIMIT 20';
   connection.query(query, function (error, results, fields) {
-    // results =
+    // item_table =
     // [ RowDataPacket {
     //  i_id: 1,
     //  i_name: 'Test_item',
@@ -45,6 +45,9 @@ app.get('/search', function(req, res) {
   var query = '';
   query += 'SELECT cat_desc FROM catagories';
   connection.query(query, function (error, results, fields) {
+    // catagories =
+    // [ RowDataPacket { cat_desc: 'Catagory 1' },
+    // RowDataPacket { cat_desc: 'Catagory 2' } ]
     res.render('pages/search', {
       pagename: 'search',
       search_text: '',
