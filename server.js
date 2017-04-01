@@ -7,16 +7,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var connection = mysql.createConnection({
-  host     : '127.0.0.1',
+  host     : '192.168.100.92',
   user     : 'root',
   password : 's%W!B#AN',
-  database : 'theater_database',
+  database : 'saleng',
   port     : 3306,
   multipleStatements: true
 });
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/node_modules/bootstrap'))
+app.use(express.static(__dirname + '/views/images'))
 
 app.get('/', function(req, res) {
   res.redirect('/index');
