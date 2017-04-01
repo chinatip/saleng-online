@@ -8,7 +8,7 @@
     <div class="container">
       <ul class="list-group" id="search-group">
         <% for (var item=0; item < catagories.length ; item++) { %>
-          <a href="#" onclick="OnClickCategory(<%= JSON.stringify(catagories[item].cat_name) %>)">
+          <a href="./catagories/<%= catagories[item].cat_id %>">
             <li class="list-group-item" >
               <%= catagories[item].cat_name %>
             </li>
@@ -16,10 +16,5 @@
         <% } %>
       </ul>
     </div>
-    <script>
-      function OnClickCategory(ev) {
-        console.log(ev)
-      }
-    </script>
   </body>
 </html>
