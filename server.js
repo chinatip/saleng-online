@@ -29,6 +29,12 @@ app.get('/index', function(req, res) {
   });
 });
 
+app.get('/search', function(req, res) {
+  res.render('pages/search', {
+    pagename: 'search'
+  });
+});
+
 var port = 8081
 app.listen(port);
 console.log('Server running at http://127.0.0.1:' + port);
