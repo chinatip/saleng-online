@@ -6,21 +6,20 @@
   <body>
     <% include ../partials/search-bar %>
     <div class="container">
-        <ul class="list-group" id="search-group">
-            <% for (var item=0; item < catagories.length ; item++) { %>
-                <li class="list-group-item" >
-                    <a href="#" onclick="OnClickCategory(<%= JSON.stringify(catagories[item].cat_name) %>)">
-                        <%= catagories[item].cat_name %>
-                    </a>
-                </li>
-            <% } %>
-        </ul>
-
+      <ul class="list-group" id="search-group">
+        <% for (var item=0; item < catagories.length ; item++) { %>
+          <a href="#" onclick="OnClickCategory(<%= JSON.stringify(catagories[item].cat_name) %>)">
+            <li class="list-group-item" >
+              <%= catagories[item].cat_name %>
+            </li>
+          </a>
+        <% } %>
+      </ul>
     </div>
     <script>
-        function OnClickCategory(ev) {
-            console.log(ev)
-        }
+      function OnClickCategory(ev) {
+        console.log(ev)
+      }
     </script>
   </body>
 </html>

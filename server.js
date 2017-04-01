@@ -35,7 +35,6 @@ app.get('/index', function(req, res) {
     //  i_name: 'Test_item',
     //  i_price: 9,
     //  img_link: './test.png' } ]
-    console.log(results);
     res.render('pages/index', {
       pagename: 'index',
       pageheader: 'Popular items',
@@ -60,14 +59,12 @@ app.get('/search', function(req, res) {
 
 app.post('/search', function(req, res) {
   var cat_name = req.body.cat_name;
-  console.log(req.body.cat_name);
   var query = 'SELECT item.i_id, item.i_name, item.i_price, item.i_unit, images.img_link, catagories.cat_name from item ';
   query += 'INNER JOIN images ON item.i_id = images.i_id ';
   query += 'INNER JOIN item_cat ON item.i_id = item_cat.i_id ';
   query += 'INNER JOIN catagories ON item_cat.cat_id = catagories.cat_id ';
   query += 'WHERE catagories.cat_name = "' + cat_name + '" ';
   query += 'GROUP BY item.i_id LIMIT 20';
-  console.log(query);
   connection.query(query, function (error, results, fields) {
     res.render('pages/index', {
       pagename: 'Catagory: ' + cat_name,
