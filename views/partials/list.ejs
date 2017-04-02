@@ -12,7 +12,11 @@
             <br><%= item.i_name %>
           </div>
           <div class="row" style="background-color: #FFFFFF; margin-right:1px; padding-bottom:5px">
-            <span>฿<%= item.i_price %>.00</span>
+            <% if (item.i_price==0) { %>
+              <button type="button" class="btn btn-xs btn-success">บริจาค</button>
+            <% } else { %>
+              <button type="button" class="btn btn-xs btn-warning">฿<%= item.i_price %>.00</button>
+            <% } %>
           </div>
         </div>
       </div>
