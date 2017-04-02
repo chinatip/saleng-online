@@ -123,6 +123,18 @@ app.post('/sell', function(req, res) {
   });
 });
 
+app.get('/history', function(req, res) {
+  var query = 'SELECT item.i_name, companies.com_name, trans.amount, item.i_price, trans.contact, trans.timestamp FROM trans ';
+  query += 'INNER JOIN item ON trans.i_id = item.i_id ';
+  query += 'INNER JOIN companies ON item.com_id = companies.com_id ';
+  connection.query(query, function (error, results, fields) {
+    res.render('pages/table', {
+      pagename: 'history',
+      table_data: results
+    });
+  });
+});
+
 var port = 8081
 app.listen(port);
 console.log('Server running at http://127.0.0.1:' + port);

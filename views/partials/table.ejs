@@ -1,0 +1,20 @@
+<% if (table_data) { %>
+  <table class="table table-condensed table-responsive table-hover">
+    <thead class="thead-default">
+      <tr>
+        <% for (col in table_data[0]) { %>
+          <th><%= col %></th>
+        <% }; %>
+      </tr>
+    </thead>
+    <tbody>
+      <% table_data.forEach(function(data) { %>
+        <tr>
+          <% for (col in data) { %>
+            <td><%= data[col] %></td>
+          <% }; %>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% }; %>
