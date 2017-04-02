@@ -26,10 +26,10 @@
 
             for (i = 0; i < li.length; i++) {
                 var a = li[i].innerText;
-                if ( a.includes(input)) {
-                    li[i].style.display = "";
-                } else {
+                if ( !a.includes(input.value) && input.value != "") {
                     li[i].style.display = "none";
+                } else {
+                    li[i].style.display = "";
                 }
             }
         }
