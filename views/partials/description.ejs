@@ -1,21 +1,19 @@
 <div class="container" >
   <div class="row" style="text-align:center;">
 
-    <div style="background-color:#FFFFFF; width:100px; height:100px;">
+    <div style="background-color:#FFFFFF">
     <div class="col-xs-12">
       <img src="<%= item.img_link %>" height="50%" width="50%" class="img-rounded">
-      <br><%= item.i_name %>
+      <br><h2><b><%= item.i_name %></h2></b>
     </div>
     <div class="col-xs-12">
-      <span>฿<%= item.i_price %>.00/ <span>กิโลกรัม</span></span>
+      <span>฿ <%= item.i_price %>.00 / <span>กิโลกรัม</span></span>
     </div>
     <div class="col-xs-12">
-      <span><%= item.i_desc %></span>
+      <span><h4><%= item.i_desc %></h4></span>
     </div>
 
-
     <div class="col-xs-12">
-      <br/>
       <hr/>
     </div>
 
@@ -26,22 +24,23 @@
       <input type="hidden" name="i_unit" value="<%=item.i_unit%>"/>
 
       <div class="col-xs-12">
-        <span>จำนวนที่ต้องการขาย</span>
+        <span><h5><b>จำนวนที่ต้องการขาย</b></h5></span>
       </div>
       <div class="col-xs-12">
-        <input type="text" name="amount" style="width:10%" maxlength="5"><span>กิโลกรัม</span>
+        <input type="text" name="amount" style="width:10%" maxlength="5"><span>  กิโลกรัม</span>
       </div>
       <div class="col-xs-12">
-        <br/>
         <hr/>
       </div>
       <div class="col-xs-12">
-        <input type="text" name="contact" style="width:50%" maxlength="50"><span>ผู้ติดต่อ</span>
+        <span><h5><b>ผู้ติดต่อ</b></h5></span>
+        <input type="text" name="contact" style="width:50%" maxlength="50">
       </div>
 
 
       <div class="col-xs-12">
-        <button type="submit" class="btn btn-default">ขาย</button>
+        <br>
+        <button type="submit" class="btn btn-default"><b><h4>ขาย</h4></b></button>
       </div>
 
     </form>
