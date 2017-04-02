@@ -1,12 +1,12 @@
 <div class="container">
   <!-- Columns are always 50% wide, on mobile and desktop -->
 
-  <div class="row" style="text-align:center; margin:2px">
+  <div class="row" style="text-align:center; margin:2px; margin-bottom: 20px;">
 
     <% item_table.forEach(function(item) { %>
       <a id="shadow" href="../item/<%= item.i_id %>">
-        <div style="margin:5px; padding:0px 5px">
-        <div class="col-xs-6">
+        <div style=" padding:0px 5px">
+        <div class="col-xs-6" style="margin-bottom: 10px;">
           <div class="row" style="background-color: #FFFFFF; margin-right:1px; margin-top:3px; padding-top:5px">
             <img src="<%= item.img_link %>" height="100px" width="100px" class="img-circle" style="margin-bottom:5px">
             <br><%= item.i_name %>
