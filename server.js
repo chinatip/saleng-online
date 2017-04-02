@@ -28,7 +28,7 @@ app.get('/', function(req, res) {
 app.get('/index', function(req, res) {
   var query = 'SELECT item.i_id, item.i_name, item.i_price, item.i_unit, images.img_link from item ';
   query += 'INNER JOIN images ON item.i_id = images.i_id ';
-  query += 'GROUP BY item.i_id LIMIT 20';
+  query += 'GROUP BY item.i_id';
   connection.query(query, function (error, results, fields) {
     // item_table =
     // [ RowDataPacket {
@@ -82,7 +82,7 @@ app.get('/catagories/:cat_id', function(req, res) {
   query += 'INNER JOIN item_cat ON item.i_id = item_cat.i_id ';
   query += 'INNER JOIN catagories ON item_cat.cat_id = catagories.cat_id ';
   query += 'WHERE catagories.cat_id = "' + cat_id + '" ';
-  query += 'GROUP BY item.i_id LIMIT 20';
+  query += 'GROUP BY item.i_id';
   connection.query(query, function (error, results, fields) {
     res.render('pages/index', {
       pagename: 'Catagory: ' + cat_id,

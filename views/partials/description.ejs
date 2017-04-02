@@ -1,3 +1,4 @@
+<% if (item.i_price==0) { var menu = "บริจาค" } else { var menu = "ขาย" } %>
 <div class="container" >
   <div class="row" style="text-align:center;">
 
@@ -25,26 +26,26 @@
       <input type="hidden" name="i_price" value="<%=item.i_price%>"/>
 
       <div class="col-xs-12">
-        <span><h5><b>จำนวนที่ต้องการขาย</b></h5></span>
+        <span><h5><b>จำนวนที่ต้องการ<%= menu %></b></h5></span>
       </div>
       <div class="col-xs-12">
-        <input type="text" name="amount" style="width:10%" maxlength="5"><span>  กิโลกรัม</span>
+        <input type="text" name="amount" style="width:10%" maxlength="5" required><span>  กิโลกรัม</span>
       </div>
       <div class="col-xs-12">
         <hr/>
       </div>
       <div class="col-xs-12">
         <span><h5><b>ผู้ติดต่อ</b></h5></span>
-        <input type="text" name="contact" style="width:50%" maxlength="50">
+        <input type="text" name="contact" style="width:50%" maxlength="50" required>
       </div>
-
 
       <div class="col-xs-12">
         <br>
-        <button type="submit" class="btn btn-default"><b><h4>ขาย</h4></b></button>
+        <button type="submit" class="btn btn-success" class="btn btn-default"><h4><b><%= menu %></b></h4></button>
       </div>
 
     </form>
   </div>
   </div>
 </div>
+<br><br>
