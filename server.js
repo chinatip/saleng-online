@@ -113,8 +113,8 @@ app.post('/sell', function(req, res) {
   var amount = req.body.amount;
   var contact = req.body.contact;
   var text = 'ฉันต้องการขาย "' + i_name + '" เป็นจำนวน "' + amount + ' ' + i_unit + '" ในราคา "' + i_price + ' บาท/' + i_unit + '" กรุณาติดต่อกลับหากคุณสนใจ'
-  var query = ' INSERT INTO trans (i_id, amount, contact) ';
-  query += 'VALUES (' + i_id + ', ' + amount + ', ' + contact + ');';
+  var query = 'INSERT INTO trans (i_id, amount, contact) ';
+  query += 'VALUES (' + i_id + ', ' + amount + ', "' + contact + '")';
   connection.query(query, function (error, results, fields) {
     res.render('pages/chat', {
       pagename: 'search',
