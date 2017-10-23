@@ -2,40 +2,39 @@ Zaleng Online
 ===================
 Hub for recycling and sharing community
 
-### Zaleng Online เป็นเว็บแอปพลิเคชันที่ถูกพัฒนาขึ้นมาเพื่อแก้ไขปัญหาการจัดการของบริการการขายของใช้ที่ไม่ใช้แล้วระหว่างผู้ต้องการขายกับผู้รับซื้อ และการบริจาคของที่ไม่ใช้แล้วให้กับผู้รับของบริจาค โดย Zaleng Online ช่วยแก้ไขปัญหาในเรื่องของความสะดวกสบายและความคล่องตัวรวมถึงประหยัดเวลาที่ใช้ในการซื้อ-ขาย ระหว่าง ผู้ต้องการขายและผู้รับซื้อ
+### Zaleng Online is an web application developed to help manage unused stuff between sellers and buyers, and donate stuff to people. Zaleng online will help you be more comfortable and save your time for both sides.
 
 ----------
 
-## วัตถุประสงค์
-- เพื่อแก้ไขปัญหาการกำจัดของที่ไม่ใช้แล้วในเรื่องของความสะดวกสบายและระยะเวลาในการขนส่งระหว่างผู้รับซิ้อและผู้ต้องการขายของ
-- เพื่อเพิ่มพื้นที่ในบ้านของผู้ต้องการขายสินค้าเพื่อระบายของที่ไม่ใช้แล้วออกไป
-- เพื่อสร้างมูลค่าให้แก่ของที่ไม่ใช้แล้วให้เกิดประโยชน์สูงสุด
+## Objective
+- To solve problem of unused stuff to save time for both sellers and buyers
+- To make money from unused stuff and increase space for sellers by selling used stuff
+- To make money off used items around your home
 
-## ประโยชน์
-- ลดค่าใช้จ่ายที่ไม่จำเป็นในการขายของใช้ที่ไม่ใช้แล้ว
-- ข้อมูลของผู้รับซื้อและผู้ขายชัดเจน เพื่อลดโอกาสความเสี่ยงในการติดต่อสื่อสารระหว่างกัน
-- การกำหนดราคาและข้อตกลงนั้นสามารถครวจสอบและตัดสินใจได้ง่ายมากขึ้น
-- ประหยัดเวลาในการดำเนินการซื้อขายระหว่างกัน
+## Benefits
+- Save costs, time and improve communication
+- Provide exact address of sellers and buyers which easier for communication
+- Setting prices and agreements can be checked and easily to decide
 
-## ความสามารถ
-- ระบบค้นหาสินค้าที่ผู้ซื้อรับซื้อ
-- ระบบสนทนาระหว่างผู้ต้องการขายสินค้าและผู้ซื้อสินค้า
-- ระบบบริจาคของที่ไม่ใช้
-- ระบบการลงสินค้าของผู้รับซื้อ
+## Abilities
+- Search system
+- Communication system
+- Donation system
+- Items management system
 
-## ปัญหาที่พบ
-- เกิดค่าใช้จ่ายในการใช้บริการขายสินค้าที่ไม่ใช้แล้วเพิ่มขึ้น
-- ผู้ขายและผู้รับซื้อติดต่อร่วมกันและเดินทางไปขนส่งสินค้าหากันไม่สะดวก
-- เกิดความไม่แน่นอนของผู้ซื้อหรือผู้รับซื้อในเรื่องการให้ข้อมูลและข้อตกลง
-- การกำหนดราคาไม่เป็นธรรม
-- ผู้ต้องการบริจาคของที่ไม่ใช้แล้วคุณสมบัติไม่ตรงกับความต้องการของผู้รับบริจาค
+## Problems
+- Cost of service when selling items increases
+- Sellers and buyers have communication and transportation problems
+- Unclear infomation and agreements of sellers and buyers
+- Unfair price setting
+- Donators donate unused stuff not match to the requirement of donees.
 
-## เทคโนโลยี
+## Technology
 - NodeJS
 - MariaDB
 - Bootstrap
 
-## การพัฒนา
+## Development
 
 ```
 # Clone Zaleng-Online
